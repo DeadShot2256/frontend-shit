@@ -259,14 +259,14 @@ function initDiepStyle() {
         }
 
         // Click outside to close
-        document.addEventListener('click', (e) => {
+        /*document.addEventListener('click', (e) => {
             if (isMenuOpen && menuElement) {
                 const panel = menuElement.querySelector('.diep-style-panel');
                 if (panel && !panel.contains(e.target)) {
                     toggleMenu();
                 }
             }
-        });
+        });*/
 
         // Theme buttons
         document.querySelectorAll('.diep-style-theme-btn').forEach(btn => {
@@ -382,6 +382,7 @@ function initDiepStyle() {
 
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
+        window.disableInputs = isMenuOpen;
         menuElement.style.display = isMenuOpen ? 'block' : 'none';
         
         console.log('Diep Style: Menu toggled', isMenuOpen ? 'OPEN' : 'CLOSED');
@@ -540,6 +541,7 @@ function initDiepStyle() {
         const modal = document.getElementById('diepStyleImportModal');
         const textArea = document.getElementById('diepStyleImportText');
         if (textArea) textArea.value = '';
+        textArea.focus();
         if (modal) modal.classList.add('active');
     }
 
