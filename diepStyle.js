@@ -259,14 +259,14 @@ function initDiepStyle() {
         }
 
         // Click outside to close
-        document.addEventListener('click', (e) => {
+        /*document.addEventListener('click', (e) => {
             if (isMenuOpen && menuElement) {
                 const panel = menuElement.querySelector('.diep-style-panel');
                 if (panel && !panel.contains(e.target)) {
                     toggleMenu();
                 }
             }
-        });
+        });*/
 
         // Theme buttons
         document.querySelectorAll('.diep-style-theme-btn').forEach(btn => {
@@ -382,6 +382,7 @@ function initDiepStyle() {
 
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
+        window.disableInputs = isMenuOpen;
         menuElement.style.display = isMenuOpen ? 'block' : 'none';
         
         console.log('Diep Style: Menu toggled', isMenuOpen ? 'OPEN' : 'CLOSED');
